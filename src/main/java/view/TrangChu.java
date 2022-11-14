@@ -216,11 +216,11 @@ public class TrangChu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_thucdonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_thucdonActionPerformed
-       //show(new ThucDonpanel());
+       show(new ThucDonpanel());
     }//GEN-LAST:event_btn_thucdonActionPerformed
 
     private void btn_donhangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_donhangActionPerformed
-        show(new ThucDonpanel());
+        
     }//GEN-LAST:event_btn_donhangActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
@@ -268,6 +268,7 @@ public class TrangChu extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(TrangChu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
