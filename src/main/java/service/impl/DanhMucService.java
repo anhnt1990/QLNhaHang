@@ -37,7 +37,7 @@ public class DanhMucService implements ICommonService<DanhMuc> {
         if (repo.addOrUpdate(t)) {
             return "Thanh cong";
         }else if(t.getId() == 0){
-            return "aaaa";
+            return "bbbb";
         }
         return "That bai";
     }
