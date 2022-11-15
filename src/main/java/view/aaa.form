@@ -23,13 +23,46 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="400" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+              <Component id="btnGop" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
+              <Component id="btnTach" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="70" max="32767" attributes="0"/>
+              <Component id="btnDonHang" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="300" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btnGop" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnTach" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnDonHang" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="304" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JButton" name="btnGop">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Gop"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnTach">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Tach"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnDonHang">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="DonHang"/>
+      </Properties>
+    </Component>
+  </SubComponents>
 </Form>
