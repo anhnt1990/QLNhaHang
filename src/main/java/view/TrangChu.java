@@ -17,7 +17,7 @@ public class TrangChu extends javax.swing.JFrame {
      */
     public TrangChu() {
         initComponents();
-        
+         show(new ThongKeJPanel());
         
     }
     
@@ -37,7 +37,6 @@ public class TrangChu extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        btn_donhang = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
         btn_hoadon = new javax.swing.JButton();
         btn_thucdon = new javax.swing.JButton();
@@ -45,6 +44,7 @@ public class TrangChu extends javax.swing.JFrame {
         btn_nhanvien = new javax.swing.JButton();
         btn_thongke = new javax.swing.JButton();
         btn_ban = new javax.swing.JButton();
+        btn_donhang = new javax.swing.JButton();
         lbl_hihi = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -55,17 +55,6 @@ public class TrangChu extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(153, 153, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Menu"));
-
-        btn_donhang.setBackground(new java.awt.Color(153, 153, 255));
-        btn_donhang.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
-        btn_donhang.setText("QL Đơn Hàng");
-        btn_donhang.setBorder(null);
-        btn_donhang.setBorderPainted(false);
-        btn_donhang.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_donhangActionPerformed(evt);
-            }
-        });
 
         jButton14.setBackground(new java.awt.Color(153, 153, 255));
         jButton14.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
@@ -83,6 +72,11 @@ public class TrangChu extends javax.swing.JFrame {
         btn_hoadon.setText("QL Hoá Đơn");
         btn_hoadon.setBorder(null);
         btn_hoadon.setBorderPainted(false);
+        btn_hoadon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_hoadonActionPerformed(evt);
+            }
+        });
 
         btn_thucdon.setBackground(new java.awt.Color(153, 153, 255));
         btn_thucdon.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
@@ -139,6 +133,17 @@ public class TrangChu extends javax.swing.JFrame {
             }
         });
 
+        btn_donhang.setBackground(new java.awt.Color(153, 153, 255));
+        btn_donhang.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btn_donhang.setText("QL Bán Hàng");
+        btn_donhang.setBorder(null);
+        btn_donhang.setBorderPainted(false);
+        btn_donhang.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_donhangActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -147,27 +152,27 @@ public class TrangChu extends javax.swing.JFrame {
                 .addGap(58, 58, 58)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btn_thucdon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_donhang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_khuyenmai, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
                     .addComponent(btn_nhanvien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_ban, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_hoadon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_thongke, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(54, Short.MAX_VALUE))
+                    .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_donhang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(btn_donhang, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38)
+                .addComponent(btn_donhang, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46)
                 .addComponent(btn_thucdon, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addGap(48, 48, 48)
                 .addComponent(btn_khuyenmai, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52)
                 .addComponent(btn_nhanvien, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
+                .addGap(48, 48, 48)
                 .addComponent(btn_ban, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52)
                 .addComponent(btn_hoadon, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -189,13 +194,13 @@ public class TrangChu extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 556, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 598, Short.MAX_VALUE)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(548, 548, 548))
+                        .addGap(560, 560, 560))
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(lbl_hihi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
+                        .addGap(21, 21, 21))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -219,10 +224,6 @@ public class TrangChu extends javax.swing.JFrame {
        show(new ThucDonpanel());
     }//GEN-LAST:event_btn_thucdonActionPerformed
 
-    private void btn_donhangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_donhangActionPerformed
-        
-    }//GEN-LAST:event_btn_donhangActionPerformed
-
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
        System.exit(0);
     }//GEN-LAST:event_jButton14ActionPerformed
@@ -242,6 +243,14 @@ public class TrangChu extends javax.swing.JFrame {
     private void btn_thongkeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_thongkeActionPerformed
         show(new ThongKeJPanel());
     }//GEN-LAST:event_btn_thongkeActionPerformed
+
+    private void btn_hoadonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_hoadonActionPerformed
+        show(new HoaDonJpanel());
+    }//GEN-LAST:event_btn_hoadonActionPerformed
+
+    private void btn_donhangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_donhangActionPerformed
+        show(new DonHangJPanel());
+    }//GEN-LAST:event_btn_donhangActionPerformed
 
     /**
      * @param args the command line arguments

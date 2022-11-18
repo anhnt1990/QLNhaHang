@@ -52,12 +52,6 @@ public class FrameQMK extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setText("Mã xác nhận:");
 
-        jTextField1.setText("jTextField1");
-
-        jTextField2.setText("jTextField1");
-
-        jTextField3.setText("jTextField1");
-
         jButton1.setText("Gửi mã xác nhận");
 
         jButton2.setText("Xác nhận mã");
