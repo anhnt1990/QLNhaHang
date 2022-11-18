@@ -5,6 +5,7 @@ import entity.DanhMuc;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import repository.ICommonRepository;
@@ -71,6 +72,20 @@ public class DanhMucRepository implements ICommonRepository<DanhMuc>{
             e.printStackTrace();
         }
         return lists;
+    }
+
+    @Override
+    public DanhMuc getOne(String ma) {
+        DanhMuc danhMuc = null;
+        try ( Session session = HibernateUtil.getFACTORY().openSession()) {
+            String hql = "SELECT s FROM ChucVu s WHERE s.ma = :ma";
+            TypedQuery<DanhMuc> query = session.createQuery(hql, DanhMuc.class);
+            query.setParameter("ma", ma);
+            danhMuc = query.getSingleResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return danhMuc;
     }
     
 }

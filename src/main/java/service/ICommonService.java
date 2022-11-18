@@ -20,4 +20,6 @@ public interface ICommonService<T> {
     
     String delete(T t);
     
+    T getOne(String ma);
+    
 }

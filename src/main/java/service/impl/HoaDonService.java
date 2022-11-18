@@ -50,4 +50,9 @@ public class HoaDonService implements ICommonService<HoaDon> {
         return "That bai";
     }
 
+    @Override
+    public HoaDon getOne(String ma) {
+        return (HoaDon) this.repo.getOne(ma);
+    }
+
 }

@@ -50,4 +50,9 @@ public class HoaDonChiTietService implements ICommonService<HoaDonChiTiet> {
         return "That bai";
     }
 
+    @Override
+    public HoaDonChiTiet getOne(String ma) {
+        return (HoaDonChiTiet) this.repo.getOne(ma);
+    }
+
 }

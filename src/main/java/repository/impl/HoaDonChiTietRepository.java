@@ -72,5 +72,10 @@ public class HoaDonChiTietRepository implements ICommonRepository<HoaDonChiTiet>
         }
         return lists;
     }
+
+    @Override
+    public HoaDonChiTiet getOne(String ma) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }

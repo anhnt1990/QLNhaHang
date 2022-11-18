@@ -50,4 +50,9 @@ public class NhanVienService implements ICommonService<NhanVien> {
         return "That bai";
     }
 
+    @Override
+    public NhanVien getOne(String ma) {
+        return (NhanVien) this.repo.getOne(ma);
+    }
+
 }

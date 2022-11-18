@@ -73,5 +73,10 @@ public class HoaDonRepository implements ICommonRepository<HoaDon>{
         }
         return lists;
     }
+
+    @Override
+    public HoaDon getOne(String ma) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }

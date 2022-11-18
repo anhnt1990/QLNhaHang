@@ -50,4 +50,9 @@ public class DanhMucService implements ICommonService<DanhMuc> {
         return "That bai";
     }
 
+    @Override
+    public DanhMuc getOne(String ma) {
+        return (DanhMuc) this.repo.getOne(ma);
+    }
+
 }

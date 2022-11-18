@@ -5,11 +5,16 @@
 package view;
 
 import entity.Ban;
+import entity.DonHang;
+import java.awt.Button;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.List;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import service.impl.BanService;
@@ -40,27 +45,18 @@ public class test extends javax.swing.JFrame {
     public test() {
         initComponents();
         banService = new BanService();
-        createAndShowBtn();
+        this.setLocale(null);
+        donHangChiTietService = new DonHangChiTietService();
+        donHangService = new DonHangService();
+        this.addCbb(cbb1);
     }
 
-    public void createAndShowBtn() {
+    private void addCbb(JComboBox cbb) {
         list = banService.getLists();
-        JButton[] btn = new JButton[list.size()];
-        int i;
-        for (i = 0; i < list.size(); i++) {
-            btn[i] = new JButton(list.get(i).getMaBan());
-            btn[i].setSize(50, 50);
-            jPanel1.add(btn[i]);
-            btn[i].addMouseListener(new MouseAdapter() {
-                public void mousePressed(MouseEvent e) {
-                    System.out.println(e.getID());
-                }
-            });
+        cbb.removeAllItems();
+        for (Ban ban : list) {
+            cbb.addItem(ban.getMaBan());
         }
-    }
-
-    private void a(Ban ban) {
-        JOptionPane.showMessageDialog(rootPane, ban.getMaBan());
     }
 
     /**
@@ -72,57 +68,81 @@ public class test extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        cbb1 = new javax.swing.JComboBox<>();
+        btnTach = new javax.swing.JButton();
+        btnGop = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Bàn"));
-        jPanel1.setLayout(new java.awt.GridBagLayout());
+        cbb1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Chitieban"));
+        btnTach.setText("TachBan");
+        btnTach.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTachActionPerformed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 410, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 543, Short.MAX_VALUE)
-        );
-
-        jLabel1.setText("Nha hang HAK");
+        btnGop.setText("GopBan");
+        btnGop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGopActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(52, Short.MAX_VALUE))
+                        .addComponent(btnTach)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
+                        .addComponent(btnGop))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(cbb1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(105, 105, 105))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(43, 43, 43))
+                .addGap(104, 104, 104)
+                .addComponent(cbb1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnTach)
+                    .addComponent(btnGop))
+                .addContainerGap(160, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnTachActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTachActionPerformed
+        // TODO add your handling code here:
+        String maban1 = cbb1.getSelectedItem().toString();
+        Ban ban1 = banService.getOne(maban1);
+        Integer id = ban1.getId();
+        DonHang donHang1 = donHangService.getByBan(id);
+        System.out.println(ban1);
+//        System.out.println(donHang1);
+        String maBan2 = JOptionPane.showInputDialog(this,"Moi nhap ma ban");
+        DonHang donHang2 = new DonHang();
+
+    }//GEN-LAST:event_btnTachActionPerformed
+
+    private void btnGopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGopActionPerformed
+        // TODO add your handling code here:
+        String maban1 = cbb1.getSelectedItem().toString();
+        Ban ban1 = banService.getOne(maban1);
+        System.out.println(ban1.toString());
+        String maBan2 = JOptionPane.showInputDialog(this,"Moi nhap ma ban");
+        System.out.println(maBan2);
+    }//GEN-LAST:event_btnGopActionPerformed
 
     /**
      * @param args the command line arguments
@@ -160,8 +180,8 @@ public class test extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton btnGop;
+    private javax.swing.JButton btnTach;
+    private javax.swing.JComboBox<String> cbb1;
     // End of variables declaration//GEN-END:variables
 }

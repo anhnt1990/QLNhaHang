@@ -16,7 +16,7 @@ import service.ICommonService;
  */
 public class DonHangService implements ICommonService<DonHang> {
 
-    private ICommonRepository repo;
+    private DonHangRepository repo;
 
     public DonHangService() {
         this.repo = new DonHangRepository();
@@ -48,6 +48,15 @@ public class DonHangService implements ICommonService<DonHang> {
             return "Thanh cong";
         }
         return "That bai";
+    }
+
+    @Override
+    public DonHang getOne(String ma) {
+        return (DonHang) this.repo.getOne(ma);
+    }
+    
+    public DonHang getByBan(int ban){
+        return this.repo.getByBan(ban);
     }
 
 }

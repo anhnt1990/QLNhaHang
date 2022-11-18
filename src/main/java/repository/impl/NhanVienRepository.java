@@ -72,5 +72,10 @@ public class NhanVienRepository implements ICommonRepository<NhanVien>{
         }
         return lists;
     }
+
+    @Override
+    public NhanVien getOne(String ma) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }

@@ -72,5 +72,10 @@ public class DonHangChiTietRepository implements ICommonRepository<DonHangChiTie
         }
         return lists;
     }
+
+    @Override
+    public DonHangChiTiet getOne(String ma) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }

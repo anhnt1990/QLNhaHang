@@ -50,4 +50,9 @@ public class DonHangChiTietService implements ICommonService<DonHangChiTiet> {
         return "That bai";
     }
 
+    @Override
+    public DonHangChiTiet getOne(String ma) {
+        return (DonHangChiTiet) this.repo.getOne(ma);
+    }
+
 }

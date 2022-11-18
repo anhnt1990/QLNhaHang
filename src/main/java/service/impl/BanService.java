@@ -50,4 +50,9 @@ public class BanService implements ICommonService<Ban> {
         return "That bai";
     }
 
+    @Override
+    public Ban getOne(String ma) {
+        return (Ban) this.repo.getOne(ma);
+    }
+
 }

@@ -21,4 +21,6 @@ public interface ICommonRepository <T>{
     
     List<T> searchByKey(String key);
     
+    T getOne(String ma);
+    
 }
