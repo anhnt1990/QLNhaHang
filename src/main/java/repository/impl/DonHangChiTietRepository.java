@@ -1,10 +1,12 @@
 
 package repository.impl;
 
+import custom.donHangChiTietCustom;
 import entity.DonHangChiTiet;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import repository.ICommonRepository;
@@ -78,4 +80,18 @@ public class DonHangChiTietRepository implements ICommonRepository<DonHangChiTie
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
+    public donHangChiTietCustom getByHoaDon(int idHoaDon){
+        donHangChiTietCustom donHangChiTiet = null;
+        try ( Session session = HibernateUtil.getFACTORY().openSession()) {
+            String hql = "SELECT new custom.donHangChiTietCustom(a.id, a.soLuong, a.donGia, a.idDonHang.id"
+                    + ", a.idThucDon.id) FROM DonHangChiTiet a WHERE a.idDonHang.id = :idHoaDon";
+            TypedQuery<donHangChiTietCustom> query = session.createQuery(hql, donHangChiTietCustom.class);
+            query.setParameter("idHoaDon", idHoaDon);
+            donHangChiTiet = query.getSingleResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return donHangChiTiet;
+    }
+
 }

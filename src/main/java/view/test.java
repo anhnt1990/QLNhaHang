@@ -4,8 +4,11 @@
  */
 package view;
 
+import custom.donHangChiTietCustom;
+import custom.donHangCustom;
 import entity.Ban;
 import entity.DonHang;
+import entity.DonHangChiTiet;
 import java.awt.Button;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -127,8 +130,8 @@ public class test extends javax.swing.JFrame {
         String maban1 = cbb1.getSelectedItem().toString();
         Ban ban1 = banService.getOne(maban1);
         Integer id = ban1.getId();
-        DonHang donHang1 = donHangService.getByBan(id);
-        System.out.println(ban1);
+        donHangCustom donHang1 = donHangService.getByBan(id);
+        System.out.println(donHang1);
 //        System.out.println(donHang1);
         String maBan2 = JOptionPane.showInputDialog(this,"Moi nhap ma ban");
         DonHang donHang2 = new DonHang();
@@ -139,9 +142,22 @@ public class test extends javax.swing.JFrame {
         // TODO add your handling code here:
         String maban1 = cbb1.getSelectedItem().toString();
         Ban ban1 = banService.getOne(maban1);
-        System.out.println(ban1.toString());
+        donHangCustom donHang1 = donHangService.getByBan(ban1.getId());
+        System.out.println(ban1);
+        System.out.println(donHang1);
+        donHangChiTietCustom donChiTiet = donHangChiTietService.getByHoaDon(donHang1.getId());
+        System.out.println(donChiTiet);
         String maBan2 = JOptionPane.showInputDialog(this,"Moi nhap ma ban");
-        System.out.println(maBan2);
+        Ban ban2 = banService.getOne(maBan2);
+        System.out.println(ban2);
+        donHangCustom donHang2 = donHangService.getByBan(ban2.getId());
+        System.out.println(donHang2.getId());
+        donHangChiTietCustom donChiTiet2 = donHangChiTietService.getByHoaDon(donHang2.getId());
+        System.out.println(donChiTiet2);
+        donChiTiet2.setIdDonHang(donHang1.getId());
+        donHangChiTietService.save(donChiTiet2);
+        donHangChiTietCustom donChiTiet3 = donHangChiTietService.getByHoaDon(donHang2.getId());
+        System.out.println(donChiTiet3);
     }//GEN-LAST:event_btnGopActionPerformed
 
     /**

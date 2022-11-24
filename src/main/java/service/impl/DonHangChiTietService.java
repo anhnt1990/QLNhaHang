@@ -4,10 +4,15 @@
  */
 package service.impl;
 
+import custom.donHangChiTietCustom;
+import entity.DonHang;
 import entity.DonHangChiTiet;
+import entity.ThucDon;
+import java.math.BigDecimal;
 import java.util.List;
 import repository.ICommonRepository;
 import repository.impl.DonHangChiTietRepository;
+import repository.impl.DonHangRepository;
 import service.ICommonService;
 
 /**
@@ -16,10 +21,12 @@ import service.ICommonService;
  */
 public class DonHangChiTietService implements ICommonService<DonHangChiTiet> {
 
-    private ICommonRepository repo;
+    private DonHangChiTietRepository repo;
+    private DonHangRepository donHangRepository;
 
     public DonHangChiTietService() {
         this.repo = new DonHangChiTietRepository();
+        this.donHangRepository = new DonHangRepository();
     }
 
     @Override
@@ -36,7 +43,7 @@ public class DonHangChiTietService implements ICommonService<DonHangChiTiet> {
     public String addOrUpdate(DonHangChiTiet t) {
         if (repo.addOrUpdate(t)) {
             return "Thanh cong";
-        }else if(t.getId() == 0){
+        } else if (t.getId() == 0) {
             return "bbbb";
         }
         return "That bai";
@@ -55,4 +62,16 @@ public class DonHangChiTietService implements ICommonService<DonHangChiTiet> {
         return (DonHangChiTiet) this.repo.getOne(ma);
     }
 
+    public donHangChiTietCustom getByHoaDon(int idHoaDon) {
+        return this.repo.getByHoaDon(idHoaDon);
+    }
+
+    public String save(donHangChiTietCustom t) {
+        String mess = "";
+        DonHang donHang = donHangRepository.findById(t.getIdDonHang());
+        if (this.repo.addOrUpdate(new DonHangChiTiet(t.getId(), t.getSoLuong(), t.getDonGia(), donHang))) {
+            mess = "Thanh cong";
+        }
+        return mess;
+    }
 }

@@ -75,13 +75,12 @@ public class DonHangRepository implements ICommonRepository<DonHang> {
         return lists;
     }
 
-    @Override
-    public DonHang getOne(String ma) {
+    public DonHang findById(int id) {
         DonHang donHang = null;
         try ( Session session = HibernateUtil.getFACTORY().openSession()) {
-            String hql = "SELECT a FROM DonHang a WHERE a.idBan = :ma";
+            String hql = "SELECT a FROM DonHang a WHERE a.id = :id";
             TypedQuery<DonHang> query = session.createQuery(hql, DonHang.class);
-            query.setParameter("ma", ma);
+            query.setParameter("id", id);
             donHang = query.getSingleResult();
         } catch (Exception e) {
             e.printStackTrace();
@@ -103,9 +102,10 @@ public class DonHangRepository implements ICommonRepository<DonHang> {
         return donHang;
     }
 
-    public static void main(String[] args) {
-        donHangCustom donHang = new DonHangRepository().getByBan(1);
-        System.out.println(donHang);
+    @Override
+    public DonHang getOne(String ma) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
 
 }

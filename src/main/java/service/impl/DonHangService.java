@@ -4,6 +4,7 @@
  */
 package service.impl;
 
+import custom.donHangCustom;
 import entity.DonHang;
 import java.util.List;
 import repository.ICommonRepository;
@@ -55,7 +56,7 @@ public class DonHangService implements ICommonService<DonHang> {
         return (DonHang) this.repo.getOne(ma);
     }
     
-    public DonHang getByBan(int ban){
+    public donHangCustom getByBan(int ban){
         return this.repo.getByBan(ban);
     }
 
