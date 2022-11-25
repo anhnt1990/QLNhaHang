@@ -156,8 +156,8 @@ public class test extends javax.swing.JFrame {
         System.out.println(donChiTiet2);
         donChiTiet2.setIdDonHang(donHang1.getId());
         donHangChiTietService.save(donChiTiet2);
-        donHangChiTietCustom donChiTiet3 = donHangChiTietService.getByHoaDon(donHang2.getId());
-        System.out.println(donChiTiet3);
+//        donHangChiTietCustom donChiTiet3 = donHangChiTietService.getByHoaDon(donHang2.getId());
+//        System.out.println(donChiTiet3);
     }//GEN-LAST:event_btnGopActionPerformed
 
     /**
