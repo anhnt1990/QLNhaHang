@@ -15,12 +15,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "ThucDon")
+@Table(name = "MonAn")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class ThucDon implements Serializable{
+public class MonAn implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,14 +36,17 @@ public class ThucDon implements Serializable{
     @Column(name = "DVT")
     private String donViTinh;
     
-    @Column(name = "Hinh")
-    private String hinh;
+    @Column(name = "HinhAnh")
+    private String hinhAnh;
     
     @Column(name = "DonGia")
     private BigDecimal donGia;
     
     @Column(name = "GhiChu")
     private String ghiChu;
+    
+    @Column(name = "TrangThai")
+    private int trangThai;
     
     @ManyToOne
     @JoinColumn(name = "IDDanhMuc")
