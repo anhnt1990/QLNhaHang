@@ -1,7 +1,7 @@
 package entity;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.math.BigDecimal;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,43 +15,40 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "DonHang")
+@Table(name = "MonAn")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class DonHang implements Serializable{
+public class MonAn implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private int id;
     
-    @Column(name = "MaDH")
-    private String maDH;
+    @Column(name = "MaMon")
+    private String maMon;
     
-    @Column(name = "NgayTao")
-    private Date ngayTao;
+    @Column(name = "TenMon")
+    private String tenMon;
     
-    @Column(name = "NgayDatBan")
-    private Date ngayDatBan;
+    @Column(name = "DVT")
+    private String donViTinh;
     
-    @Column(name = "TrangThai")
-    private int trangThai;
+    @Column(name = "HinhAnh")
+    private String hinhAnh;
+    
+    @Column(name = "DonGia")
+    private BigDecimal donGia;
     
     @Column(name = "GhiChu")
     private String ghiChu;
     
-    @ManyToOne
-    @JoinColumn(name = "IDBan")
-    private Ban idBan;
+    @Column(name = "TrangThai")
+    private int trangThai;
     
     @ManyToOne
-    @JoinColumn(name = "IDNV")
-    private NhanVien idNhanVien;
-   
-    @ManyToOne
-    @JoinColumn(name = "IDKM")
-    private KhuyenMai idKhuyenMai;
-    
+    @JoinColumn(name = "IDDanhMuc")
+    private DanhMuc danhMuc;
 }

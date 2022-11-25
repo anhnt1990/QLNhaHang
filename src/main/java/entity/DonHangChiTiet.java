@@ -38,6 +38,7 @@ public class DonHangChiTiet implements Serializable{
     private DonHang idDonHang;
     
     @ManyToOne
+<<<<<<< HEAD
     @JoinColumn(name = "IDTD")
     private ThucDon idThucDon;
 
@@ -49,5 +50,9 @@ public class DonHangChiTiet implements Serializable{
     }
     
     
+=======
+    @JoinColumn(name = "IDMonAn")
+    private MonAn idMonAn;
+>>>>>>> main
     
 }
