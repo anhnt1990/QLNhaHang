@@ -21,8 +21,7 @@ public class ThucDonCustom {
     private String tenMon;
     
    
-    private String donViTinh;
-    
+
    
     private String hinh;
     
@@ -33,22 +32,22 @@ public class ThucDonCustom {
     private String ghiChu;
     
     private DanhMucCustom danhMuc;
-    
-    private DonViTinhCustom donvitinh;
 
     public ThucDonCustom() {
     }
+    
+    
 
-    public ThucDonCustom(int id, String maMon, String tenMon, String donViTinh, String hinh, BigDecimal donGia, String ghiChu, DanhMucCustom danhMuc, DonViTinhCustom donvitinh) {
+    
+
+    public ThucDonCustom(int id, String maMon, String tenMon, String hinh, BigDecimal donGia, String ghiChu, DanhMucCustom danhMuc) {
         this.id = id;
         this.maMon = maMon;
         this.tenMon = tenMon;
-        this.donViTinh = donViTinh;
         this.hinh = hinh;
         this.donGia = donGia;
         this.ghiChu = ghiChu;
         this.danhMuc = danhMuc;
-        this.donvitinh = donvitinh;
     }
 
     public int getId() {
@@ -73,14 +72,6 @@ public class ThucDonCustom {
 
     public void setTenMon(String tenMon) {
         this.tenMon = tenMon;
-    }
-
-    public String getDonViTinh() {
-        return donViTinh;
-    }
-
-    public void setDonViTinh(String donViTinh) {
-        this.donViTinh = donViTinh;
     }
 
     public String getHinh() {
@@ -115,12 +106,6 @@ public class ThucDonCustom {
         this.danhMuc = danhMuc;
     }
 
-    public DonViTinhCustom getDonvitinh() {
-        return donvitinh;
-    }
-
-    public void setDonvitinh(DonViTinhCustom donvitinh) {
-        this.donvitinh = donvitinh;
-    }
+   
     
 }

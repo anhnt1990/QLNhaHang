@@ -51,7 +51,5 @@ public class MonAn implements Serializable{
     @ManyToOne
     @JoinColumn(name = "IDDanhMuc")
     private DanhMuc danhMuc;
-    @ManyToOne
-    @JoinColumn(name = "IDDonVi")
-    private Donvitinh donvitinh;
+    
 }
