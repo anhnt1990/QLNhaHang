@@ -1,7 +1,6 @@
 package entity;
 
 import java.io.Serializable;
-import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,31 +12,23 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "KhuyenMai")
+@Table(name = "KhuVuc")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
-public class KhuyenMai implements Serializable{
+public class KhuVuc implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private int id;
     
-    @Column(name = "MaGiamGia")
-    private String maGiamGia;
+    @Column(name = "MaKV")
+    private String maKV;
     
-    @Column(name = "PhanTram")
-    private int phanTram;
-    
-    @Column(name = "NgayBatDau")
-    private Date ngayBatDau;
-    
-    @Column(name = "NgayKetThuc")
-    private Date ngayKetThuc;
+    @Column(name = "TenKV")
+    private String tenKV;
     
     @Column(name = "TrangThai")
     private int trangThai;
-    
 }
