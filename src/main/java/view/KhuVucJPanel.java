@@ -54,10 +54,6 @@ public class KhuVucJPanel extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setText("Trạng thái:");
 
-        jTextField1.setText("jTextField1");
-
-        jTextField2.setText("jTextField1");
-
         jRadioButton1.setText("còn");
 
         jRadioButton2.setText("Trống");
