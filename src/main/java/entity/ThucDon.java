@@ -48,4 +48,7 @@ public class ThucDon implements Serializable{
     @ManyToOne
     @JoinColumn(name = "IDDanhMuc")
     private DanhMuc danhMuc;
+    @ManyToOne
+    @JoinColumn(name = "IDDonVi")
+    private Donvitinh donvitinh;
 }

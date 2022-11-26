@@ -8,6 +8,7 @@ import entity.Ban;
 import entity.DanhMuc;
 import entity.DonHang;
 import entity.DonHangChiTiet;
+import entity.Donvitinh;
 import entity.HoaDon;
 import entity.HoaDonChiTiet;
 import entity.KhuyenMai;
@@ -51,11 +52,11 @@ public class HibernateUtil {
         properties.put(Environment.DRIVER, "com.microsoft.sqlserver.jdbc.SQLServerDriver");
         properties.put(Environment.URL, "jdbc:sqlserver://localhost:1433;"
                 + "databaseName=QLNhaHang;encrypt=true;trustServerCertificate=true;");
-        properties.put(Environment.USER, "sa");
-        properties.put(Environment.PASS, "");
+        properties.put(Environment.USER, "hieu26");
+        properties.put(Environment.PASS, "12345");
         properties.put(Environment.SHOW_SQL, "true");
         //gen DB tự động
-        properties.put(Environment.HBM2DDL_AUTO, "create"); 
+       // properties.put(Environment.HBM2DDL_AUTO, "create"); 
         return properties;
     }
 
@@ -72,6 +73,7 @@ public class HibernateUtil {
         conf.addAnnotatedClass(DonHangChiTiet.class);
         conf.addAnnotatedClass(HoaDon.class);
         conf.addAnnotatedClass(HoaDonChiTiet.class);
+        conf.addAnnotatedClass(Donvitinh.class);
 
         return conf;
     }

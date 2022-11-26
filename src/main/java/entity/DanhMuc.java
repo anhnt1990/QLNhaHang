@@ -30,7 +30,7 @@ public class DanhMuc implements Serializable{
     @Column(name = "TenLoai")
     private String tenLoai;
     
-    public Object[] toRowData(){
-        return new Object[] {id, maLoai, tenLoai};
-    }
+//    public Object[] toRowData(){
+//        return new Object[] {id, maLoai, tenLoai};
+//    }
 }
