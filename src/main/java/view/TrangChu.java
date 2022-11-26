@@ -45,6 +45,7 @@ public class TrangChu extends javax.swing.JFrame {
         btn_thongke = new javax.swing.JButton();
         btn_ban = new javax.swing.JButton();
         btn_donhang = new javax.swing.JButton();
+        btn_thongke1 = new javax.swing.JButton();
         lbl_hihi = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -144,6 +145,17 @@ public class TrangChu extends javax.swing.JFrame {
             }
         });
 
+        btn_thongke1.setBackground(new java.awt.Color(153, 153, 255));
+        btn_thongke1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        btn_thongke1.setText("Ql Khu Vực");
+        btn_thongke1.setBorder(null);
+        btn_thongke1.setBorderPainted(false);
+        btn_thongke1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_thongke1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -158,7 +170,8 @@ public class TrangChu extends javax.swing.JFrame {
                     .addComponent(btn_hoadon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_thongke, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_donhang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btn_donhang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_thongke1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(53, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -166,21 +179,23 @@ public class TrangChu extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addComponent(btn_donhang, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
+                .addGap(37, 37, 37)
                 .addComponent(btn_thucdon, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
+                .addGap(46, 46, 46)
                 .addComponent(btn_khuyenmai, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
+                .addGap(45, 45, 45)
                 .addComponent(btn_nhanvien, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
+                .addGap(47, 47, 47)
                 .addComponent(btn_ban, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
+                .addGap(42, 42, 42)
+                .addComponent(btn_thongke1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addComponent(btn_hoadon, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addGap(45, 45, 45)
                 .addComponent(btn_thongke, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
+                .addGap(40, 40, 40)
                 .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46))
+                .addGap(22, 22, 22))
         );
 
         lbl_hihi.setLayout(new java.awt.BorderLayout());
@@ -252,6 +267,10 @@ public class TrangChu extends javax.swing.JFrame {
         show(new DonHangJPanel());
     }//GEN-LAST:event_btn_donhangActionPerformed
 
+    private void btn_thongke1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_thongke1ActionPerformed
+        show(new KhuVucJPanel());// TODO add your handling code here:
+    }//GEN-LAST:event_btn_thongke1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -295,6 +314,7 @@ public class TrangChu extends javax.swing.JFrame {
     private javax.swing.JButton btn_khuyenmai;
     private javax.swing.JButton btn_nhanvien;
     private javax.swing.JButton btn_thongke;
+    private javax.swing.JButton btn_thongke1;
     private javax.swing.JButton btn_thucdon;
     private javax.swing.JButton jButton14;
     private javax.swing.JLabel jLabel1;
