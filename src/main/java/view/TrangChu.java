@@ -34,6 +34,7 @@ public class TrangChu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 204, 255));
+        setMaximumSize(new java.awt.Dimension(1920, 1080));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("Trang Chủ");
@@ -153,23 +154,23 @@ public class TrangChu extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(50, 50, 50)
                 .addComponent(btn_donhang, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
                 .addComponent(btn_thucdon, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
+                .addGap(50, 50, 50)
                 .addComponent(btn_khuyenmai, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
+                .addGap(50, 50, 50)
                 .addComponent(btn_nhanvien, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addComponent(btn_ban, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59)
+                .addGap(50, 50, 50)
                 .addComponent(btn_hoadon, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
+                .addGap(50, 50, 50)
                 .addComponent(btn_thongke, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56)
+                .addGap(50, 50, 50)
                 .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                .addGap(50, 50, 50))
         );
 
         lbl_hihi.setLayout(new java.awt.BorderLayout());
@@ -180,7 +181,7 @@ public class TrangChu extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 590, Short.MAX_VALUE)
@@ -221,10 +222,6 @@ public class TrangChu extends javax.swing.JFrame {
         show(new KhuyenMaiJpanel());
     }//GEN-LAST:event_btn_khuyenmaiActionPerformed
 
-    private void btn_nhanvienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nhanvienActionPerformed
-        show(new NhanVienJpanel());
-    }//GEN-LAST:event_btn_nhanvienActionPerformed
-
     private void btn_banActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_banActionPerformed
         show(new BanJPanel());
     }//GEN-LAST:event_btn_banActionPerformed
@@ -240,6 +237,10 @@ public class TrangChu extends javax.swing.JFrame {
     private void btn_donhangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_donhangActionPerformed
         show(new DonHangJPanel());
     }//GEN-LAST:event_btn_donhangActionPerformed
+
+    private void btn_nhanvienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nhanvienActionPerformed
+        show(new NhanVienJpanel());
+    }//GEN-LAST:event_btn_nhanvienActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

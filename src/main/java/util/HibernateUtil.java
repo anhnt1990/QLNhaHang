@@ -45,11 +45,11 @@ public class HibernateUtil {
         properties.put(Environment.URL, "jdbc:sqlserver://localhost:1433;"
                 + "databaseName=QLNhaHang;encrypt=true;trustServerCertificate=true;");
         properties.put(Environment.USER, "sa");
-        properties.put(Environment.PASS, "");
+        properties.put(Environment.PASS, "123456");
         properties.put(Environment.SHOW_SQL, "true");
 
         //gen DB tự động
-        properties.put(Environment.HBM2DDL_AUTO, "create");
+//        properties.put(Environment.HBM2DDL_AUTO, "create");
         return properties;
     }
 
