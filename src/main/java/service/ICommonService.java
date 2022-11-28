@@ -10,10 +10,10 @@ import java.util.List;
  *
  * @author admin
  */
-public interface ICommonService<T, K> {
+public interface ICommonService<T> {
 
-    boolean addOrUpdate(T t);
+    String addOrUpdate(T t);
 
-    List<K> findByKey(String key);
+    List<T> findByKey(String key);
 
 }
