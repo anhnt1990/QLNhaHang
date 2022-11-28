@@ -50,7 +50,8 @@ public class DanhMucJdialog extends javax.swing.JDialog {
 
         String ten = txtTenLoai.getText();
         danhMuc.setTenLoai(ten);
-
+        
+       
         return danhMuc;
     }
 
@@ -78,11 +79,14 @@ public class DanhMucJdialog extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
         txtTenLoai = new javax.swing.JTextField();
         btnThem = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btn_sua = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jRadioButton1 = new javax.swing.JRadioButton();
-        jTextField4 = new javax.swing.JTextField();
+        txt_timkiem = new javax.swing.JTextField();
         lb_id = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButton3 = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(153, 153, 255));
@@ -126,11 +130,11 @@ public class DanhMucJdialog extends javax.swing.JDialog {
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton2.setText("Sửa");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btn_sua.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btn_sua.setText("Sửa");
+        btn_sua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btn_suaActionPerformed(evt);
             }
         });
 
@@ -138,6 +142,24 @@ public class DanhMucJdialog extends javax.swing.JDialog {
         jLabel4.setText("Tìm Kiếm:");
 
         jRadioButton1.setText("Theo tên");
+
+        txt_timkiem.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                txt_timkiemCaretUpdate(evt);
+            }
+        });
+        txt_timkiem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_timkiemActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel5.setText("Trạng Thái:");
+
+        jRadioButton2.setText("Còn");
+
+        jRadioButton3.setText("Hết");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -148,15 +170,6 @@ public class DanhMucJdialog extends javax.swing.JDialog {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtMaLoai, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtTenLoai))
-                        .addContainerGap())
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -164,15 +177,32 @@ public class DanhMucJdialog extends javax.swing.JDialog {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 27, Short.MAX_VALUE)))
+                                .addComponent(txt_timkiem, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 35, Short.MAX_VALUE)))
                         .addContainerGap())
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
+                        .addGap(31, 31, 31)
                         .addComponent(btnThem)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2)
-                        .addGap(51, 51, 51))))
+                        .addComponent(btn_sua)
+                        .addGap(48, 48, 48))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jRadioButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtMaLoai, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtTenLoai))
+                                .addContainerGap())))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,7 +210,7 @@ public class DanhMucJdialog extends javax.swing.JDialog {
                 .addGap(16, 16, 16)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_timkiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRadioButton1)
@@ -193,11 +223,16 @@ public class DanhMucJdialog extends javax.swing.JDialog {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtTenLoai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
+                .addGap(27, 27, 27)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(btnThem))
-                .addGap(39, 39, 39))
+                    .addComponent(jLabel5)
+                    .addComponent(jRadioButton2)
+                    .addComponent(jRadioButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnThem)
+                    .addComponent(btn_sua))
+                .addGap(20, 20, 20))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -244,7 +279,7 @@ public class DanhMucJdialog extends javax.swing.JDialog {
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
       List<DanhMucCustom> ds = _DanhMucService.getLists();
         DanhMucCustom spMoi = getData();
-        if (_DanhMucService.Them(getData()) != null) {
+        if (_DanhMucService.addOrUpdate(getData()) != null) {
             JOptionPane.showMessageDialog(this, "Thành công");
         } else {
             JOptionPane.showMessageDialog(this, "Thất bại");
@@ -252,22 +287,24 @@ public class DanhMucJdialog extends javax.swing.JDialog {
         loadDataToTable(_DanhMucService.getLists());
     }//GEN-LAST:event_btnThemActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btn_suaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_suaActionPerformed
        for (DanhMucCustom x : _DanhMucService.getLists()) {
             if (x.getId()== Integer.parseInt(lb_id.getText())) {
-                
+               DanhMucCustom danhmuc  = getData();
+               danhmuc.setId(Integer.parseInt(lb_id.getText()));
+                System.out.println(lb_id.getText());
                 int xacnhan = JOptionPane.showConfirmDialog(this, "Bạn có muốn tháy đổi ko?");
                 if (xacnhan != JOptionPane.YES_OPTION) {
                     return;
                 }
-                JOptionPane.showMessageDialog(this, _ICommonService.addOrUpdate(getData()));
+                JOptionPane.showMessageDialog(this, _ICommonService.addOrUpdate(danhmuc));
                 loadDataToTable(_DanhMucService.getLists());
                 return;
             }
             
         } 
        JOptionPane.showMessageDialog(this, "Không tìm thấy mã!");
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btn_suaActionPerformed
 
     private void tblDanhMucMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDanhMucMouseClicked
         int row = tblDanhMuc.getSelectedRow();
@@ -276,6 +313,15 @@ public class DanhMucJdialog extends javax.swing.JDialog {
         lb_id.setText(tblDanhMuc.getValueAt(row, 0).toString());
         
     }//GEN-LAST:event_tblDanhMucMouseClicked
+
+    private void txt_timkiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_timkiemActionPerformed
+         JOptionPane.showMessageDialog(this, _ICommonService.search(txt_timkiem.getText())); 
+        loadDataToTable(_DanhMucService.search(txt_timkiem.getText()));
+    }//GEN-LAST:event_txt_timkiemActionPerformed
+
+    private void txt_timkiemCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txt_timkiemCaretUpdate
+         loadDataToTable(_DanhMucService.search(txt_timkiem.getText()));
+    }//GEN-LAST:event_txt_timkiemCaretUpdate
 
     /**
      * @param args the command line arguments
@@ -322,19 +368,22 @@ public class DanhMucJdialog extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnThem;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btn_sua;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JLabel lb_id;
     private javax.swing.JTable tblDanhMuc;
     private javax.swing.JTextField txtMaLoai;
     private javax.swing.JTextField txtTenLoai;
+    private javax.swing.JTextField txt_timkiem;
     // End of variables declaration//GEN-END:variables
 }

@@ -31,6 +31,7 @@ public class DanhMucService implements ICommonService<DanhMucCustom> {
         danhmuc.setId(danhmucc.getId());
         danhmuc.setMaLoai(danhmucc.getMaLoai());
         danhmuc.setTenLoai(danhmucc.getTenLoai());
+        
         return danhmuc;
     }
 
@@ -51,7 +52,9 @@ public class DanhMucService implements ICommonService<DanhMucCustom> {
         for (DanhMuc x : _repodanhmuc.getAll()) {
             if (x.getTenLoai().toLowerCase().contains(key.toLowerCase()) ) {
                 dm.add(new DanhMucCustom(x.getId(),x.getMaLoai(), x.getTenLoai()));
-                System.out.println(dm + "ádsd");
+            }
+            if (x.getMaLoai().toLowerCase().contains(key.toLowerCase()) ) {
+                dm.add(new DanhMucCustom(x.getId(),x.getMaLoai(), x.getTenLoai()));
             }
         }
         return dm;

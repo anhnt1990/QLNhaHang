@@ -20,15 +20,12 @@ public class ThucDonCustom {
     
     private String tenMon;
     
-   
-
-   
     private String hinh;
     
     
     private BigDecimal donGia;
-    
-    
+    private int trangThai;
+    private String donViTinh;
     private String ghiChu;
     
     private DanhMucCustom danhMuc;
@@ -36,10 +33,6 @@ public class ThucDonCustom {
     public ThucDonCustom() {
     }
     
-    
-
-    
-
     public ThucDonCustom(int id, String maMon, String tenMon, String hinh, BigDecimal donGia, String ghiChu, DanhMucCustom danhMuc) {
         this.id = id;
         this.maMon = maMon;

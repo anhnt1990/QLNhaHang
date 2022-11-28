@@ -30,7 +30,6 @@ public class DanhMuc implements Serializable{
     @Column(name = "TenLoai")
     private String tenLoai;
     
-    @Column(name = "TrangThai")
-    private int trangThai;
+    
     
 }

@@ -39,9 +39,7 @@ public class DanhMucRepository implements ICommonRepository<DanhMuc>{
                 trans.rollback();
                 return false;
             }
-        } finally {
-            return true;
-        }
+        } 
     }
 
     @Override
