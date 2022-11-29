@@ -53,9 +53,9 @@ public class DanhMucService implements ICommonService<DanhMucCustom> {
             if (x.getTenLoai().toLowerCase().contains(key.toLowerCase()) ) {
                 dm.add(new DanhMucCustom(x.getId(),x.getMaLoai(), x.getTenLoai()));
             }
-            if (x.getMaLoai().toLowerCase().contains(key.toLowerCase()) ) {
-                dm.add(new DanhMucCustom(x.getId(),x.getMaLoai(), x.getTenLoai()));
-            }
+//            if (x.getMaLoai().toLowerCase().contains(key.toLowerCase()) ) {
+//                dm.add(new DanhMucCustom(x.getId(),x.getMaLoai(), x.getTenLoai()));
+//            }
         }
         return dm;
     }

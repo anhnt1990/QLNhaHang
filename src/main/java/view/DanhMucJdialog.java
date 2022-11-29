@@ -1,19 +1,52 @@
 package view;
 
+import Custom.DanhMucCustom;
 import entity.DanhMuc;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import service.ICommonService;
+import service.impl.DanhMucService;
 
 public class DanhMucJdialog extends javax.swing.JDialog {
     
-
+private DanhMucService _DanhMucService;
+    private  ICommonService<DanhMucCustom> _ICommonService;
+    private DanhMucCustom _DanhMucCustom;
     private DefaultTableModel _DefaultTableModel;
 
     public DanhMucJdialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        _DanhMucService = new DanhMucService();
+         _ICommonService = new DanhMucService();
+        loadDataToTable(_DanhMucService.getLists());
+    }
+    public void loadDataToTable(List<DanhMucCustom> lists) {
+        _DefaultTableModel = (DefaultTableModel) tblDanhMuc.getModel();
+        _DefaultTableModel.setRowCount(0);
+        for (DanhMucCustom x : lists) {
+          _DefaultTableModel.addRow(new Object[]{x.getId(),x.getMaLoai(),x.getTenLoai()});
+        }
+    }
+
+    private DanhMucCustom getData() {
+        DanhMucCustom danhMuc = new DanhMucCustom();
+
+        String ma = txtMaLoai.getText();
+        danhMuc.setMaLoai(ma);
+
+        String ten = txtTenLoai.getText();
+        danhMuc.setTenLoai(ten);
+
+
+        return danhMuc;
+    }
+
+    private void clearData() {
+        //lblId.setText("");
+        txtMaLoai.setText("");
+        txtTenLoai.setText("");
     }
 
     @SuppressWarnings("unchecked")
@@ -32,7 +65,7 @@ public class DanhMucJdialog extends javax.swing.JDialog {
         btnThem = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        txt_timkiem = new javax.swing.JTextField();
         lb_id = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -51,6 +84,11 @@ public class DanhMucJdialog extends javax.swing.JDialog {
                 "STT", "Mã danh mục", "Tên danh mục"
             }
         ));
+        tblDanhMuc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblDanhMucMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblDanhMuc);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -66,12 +104,33 @@ public class DanhMucJdialog extends javax.swing.JDialog {
 
         btnThem.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnThem.setText("Thêm");
+        btnThem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnThemActionPerformed(evt);
+            }
+        });
 
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButton2.setText("Sửa");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setText("Tìm Kiếm:");
+
+        txt_timkiem.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                txt_timkiemCaretUpdate(evt);
+            }
+        });
+        txt_timkiem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_timkiemActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -97,7 +156,7 @@ public class DanhMucJdialog extends javax.swing.JDialog {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txt_timkiem, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap())
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(30, 30, 30)
@@ -112,7 +171,7 @@ public class DanhMucJdialog extends javax.swing.JDialog {
                 .addGap(16, 16, 16)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_timkiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lb_id)
                 .addGap(37, 37, 37)
@@ -171,6 +230,51 @@ public class DanhMucJdialog extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
+          List<DanhMucCustom> ds = _DanhMucService.getLists();
+        DanhMucCustom spMoi = getData();
+        if (_DanhMucService.addOrUpdate(getData()) != null) {
+            JOptionPane.showMessageDialog(this, "Thành công");
+        } else {
+            JOptionPane.showMessageDialog(this, "Thất bại");
+        }
+        loadDataToTable(_DanhMucService.getLists());
+    }//GEN-LAST:event_btnThemActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        for (DanhMucCustom x : _DanhMucService.getLists()) {
+            if (x.getId()== Integer.parseInt(lb_id.getText())) {
+               DanhMucCustom danhmuc  = getData();
+               danhmuc.setId(Integer.parseInt(lb_id.getText()));
+                System.out.println(lb_id.getText());
+                int xacnhan = JOptionPane.showConfirmDialog(this, "Bạn có muốn tháy đổi ko?");
+                if (xacnhan != JOptionPane.YES_OPTION) {
+                    return;
+                }
+                JOptionPane.showMessageDialog(this, _ICommonService.addOrUpdate(danhmuc));
+                loadDataToTable(_DanhMucService.getLists());
+                return;
+            }
+            }
+        JOptionPane.showMessageDialog(this, "Không tìm thấy mã!");
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void tblDanhMucMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDanhMucMouseClicked
+        int row = tblDanhMuc.getSelectedRow();
+        txtMaLoai.setText(tblDanhMuc.getValueAt(row, 1).toString());
+        txtTenLoai.setText(tblDanhMuc.getValueAt(row, 2).toString());
+        lb_id.setText(tblDanhMuc.getValueAt(row, 0).toString());
+    }//GEN-LAST:event_tblDanhMucMouseClicked
+
+    private void txt_timkiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_timkiemActionPerformed
+//        JOptionPane.showMessageDialog(this, _ICommonService.search(txt_timkiem.getText())); 
+//        loadDataToTable(_DanhMucService.search(txt_timkiem.getText()));
+    }//GEN-LAST:event_txt_timkiemActionPerformed
+
+    private void txt_timkiemCaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_txt_timkiemCaretUpdate
+        loadDataToTable(_DanhMucService.search(txt_timkiem.getText()));
+    }//GEN-LAST:event_txt_timkiemCaretUpdate
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -221,10 +325,10 @@ public class DanhMucJdialog extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JLabel lb_id;
     private javax.swing.JTable tblDanhMuc;
     private javax.swing.JTextField txtMaLoai;
     private javax.swing.JTextField txtTenLoai;
+    private javax.swing.JTextField txt_timkiem;
     // End of variables declaration//GEN-END:variables
 }

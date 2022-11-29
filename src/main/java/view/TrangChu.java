@@ -231,7 +231,7 @@ public class TrangChu extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_thongkeActionPerformed
 
     private void btn_hoadonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_hoadonActionPerformed
-        show(new HoaDonJpanel());
+        //show(new HoaDonJpanel());
     }//GEN-LAST:event_btn_hoadonActionPerformed
 
     private void btn_donhangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_donhangActionPerformed
