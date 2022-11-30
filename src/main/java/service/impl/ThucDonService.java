@@ -61,7 +61,7 @@ public class ThucDonService implements ICommonService<ThucDonCustom>{
         monan.setTrangThai(thucdon.getTrangThai());
         monan.setDanhMuc(new DanhMuc(thucdon.getDanhMuc().getId(),thucdon.getDanhMuc().getMaLoai(),thucdon.getDanhMuc().getTenLoai()));
         monan.setDonGia(thucdon.getDonGia());
-       
+        
         return monan;
     }
 
@@ -93,5 +93,7 @@ public class ThucDonService implements ICommonService<ThucDonCustom>{
     public String delete(ThucDonCustom t) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+    
+    
     
 }

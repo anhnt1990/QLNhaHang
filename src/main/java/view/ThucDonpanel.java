@@ -18,14 +18,19 @@ import util.XImage;
 
 public class ThucDonpanel extends javax.swing.JPanel {
     ICommonService<ThucDonCustom> monanservice;
+       ThucDonService donService;
     DanhMucService danhmucservice;
     DefaultTableModel defaultTableModel;
     public ThucDonpanel() {
         initComponents();
         monanservice = new ThucDonService();
         danhmucservice = new DanhMucService();
+        donService = new ThucDonService();
         cbxdanhmuc();
         cbxTrangThai();
+        lblid.setEnabled(false);
+        
+        lblid.setText("0");
         Loadtable(monanservice.getLists());
     }
     
@@ -52,6 +57,8 @@ public class ThucDonpanel extends javax.swing.JPanel {
                 txtghichu.getText(),  
                 cbxtrangthai.getSelectedItem().equals("Đang Bán")?1:0, 
                 danhmucservice.getLists().get(cbxdanhmuc.getSelectedIndex()));
+        
+                
     }
     
     void getImg() {
@@ -100,6 +107,7 @@ public class ThucDonpanel extends javax.swing.JPanel {
         btnchonanh = new javax.swing.JButton();
         lbl_hinhanh = new javax.swing.JLabel();
         lblid = new javax.swing.JTextField();
+        btnsua1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
@@ -145,6 +153,11 @@ public class ThucDonpanel extends javax.swing.JPanel {
 
         btnsua.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnsua.setText("Sửa");
+        btnsua.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsuaActionPerformed(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel8.setText("Đơn giá:");
@@ -158,19 +171,32 @@ public class ThucDonpanel extends javax.swing.JPanel {
 
         lbl_hinhanh.setText("jLabel10");
 
+        btnsua1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnsua1.setText("Clear");
+        btnsua1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsua1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(btnthem)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnsua)
-                .addGap(27, 27, 27))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(100, 100, 100))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnthem)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnsua)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnsua1)
+                        .addContainerGap())
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
@@ -202,10 +228,6 @@ public class ThucDonpanel extends javax.swing.JPanel {
                                         .addComponent(lbl_hinhanh, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(btnchonanh, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                 .addContainerGap(18, Short.MAX_VALUE))))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(100, 100, 100))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -246,7 +268,8 @@ public class ThucDonpanel extends javax.swing.JPanel {
                 .addGap(26, 26, 26)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnthem)
-                    .addComponent(btnsua))
+                    .addComponent(btnsua)
+                    .addComponent(btnsua1))
                 .addGap(15, 15, 15))
         );
 
@@ -272,6 +295,11 @@ public class ThucDonpanel extends javax.swing.JPanel {
                 "stt", "Mã món", "Tên món", "Đơn vị tính", "đơn giá", "trạng thái", "ghi chú", "danh mục", "hình ảnh"
             }
         ));
+        tblthucdon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblthucdonMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tblthucdon);
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -363,10 +391,37 @@ public class ThucDonpanel extends javax.swing.JPanel {
          Loadtable(monanservice.getLists());
     }//GEN-LAST:event_btnthemActionPerformed
 
+    private void btnsuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsuaActionPerformed
+      ThucDonCustom thucdoncs = getdata();
+      thucdoncs.setId(Integer.parseInt(lblid.getText()));
+      JOptionPane.showMessageDialog(this, monanservice.addOrUpdate(thucdoncs));
+      Loadtable(monanservice.getLists());
+    }//GEN-LAST:event_btnsuaActionPerformed
+
+    private void tblthucdonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblthucdonMouseClicked
+        int row = tblthucdon.getSelectedRow();
+        txtmamon.setText(tblthucdon.getValueAt(row, 1).toString());
+        txttenmon.setText(tblthucdon.getValueAt(row, 2).toString());
+        txtdongia.setText(tblthucdon.getValueAt(row, 4).toString());
+        txtdonvitinh.setText(tblthucdon.getValueAt(row, 3).toString());
+        txtghichu.setText(tblthucdon.getValueAt(row, 6).toString());
+        lbl_hinhanh.setText(tblthucdon.getValueAt(row, 8).toString());
+        lblid.setText(tblthucdon.getValueAt(row, 0).toString());
+        cbxdanhmuc.setSelectedItem(tblthucdon.getValueAt(row, 7).toString());
+        cbxtrangthai.setSelectedItem(tblthucdon.getValueAt(row, 5).toString());
+        
+    }//GEN-LAST:event_tblthucdonMouseClicked
+
+    private void btnsua1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsua1ActionPerformed
+        lblid.setText("0");
+        
+    }//GEN-LAST:event_btnsua1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnchonanh;
     private javax.swing.JButton btnsua;
+    private javax.swing.JButton btnsua1;
     private javax.swing.JButton btnthem;
     private javax.swing.JComboBox<String> cbxdanhmuc;
     private javax.swing.JComboBox<String> cbxtrangthai;
