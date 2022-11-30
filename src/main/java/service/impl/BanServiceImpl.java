@@ -27,13 +27,9 @@ public class BanServiceImpl implements ICommonService<BanCustom> {
         list = new ArrayList<>();
     }
 
-    public List<BanCustom> getList(String maBan) {
-        return this.repo.searchByMa(maBan);
-    }
-
     @Override
     public List<BanCustom> findByKey(String key) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.repo.findByKey(key);
     }
 
     @Override
@@ -50,6 +46,14 @@ public class BanServiceImpl implements ICommonService<BanCustom> {
             mess = "That bai";
         }
         return mess;
+    }
+
+    public List<BanCustom> Getban(String ma) {
+        return this.repo.Getban(ma);
+    }
+    
+    public List<BanCustom> getkhuvuc(int idkv) {
+        return this.repo.getkhuvuc(idkv);
     }
 
 }

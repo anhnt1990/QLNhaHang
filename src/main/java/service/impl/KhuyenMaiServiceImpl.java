@@ -1,0 +1,42 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package service.impl;
+
+import custom.BanCustom;
+import custom.KhuyenMaiCustom;
+import entity.Ban;
+import entity.KhuVuc;
+import java.util.ArrayList;
+import java.util.List;
+import repository.ICommonRepository;
+import repository.impl.BanRepositoryImpl;
+import repository.impl.KhuyenMaiRepositoryImpl;
+import service.ICommonService;
+
+/**
+ *
+ * @author admin
+ */
+public class KhuyenMaiServiceImpl implements ICommonService<KhuyenMaiCustom> {
+
+    private KhuyenMaiRepositoryImpl repo;
+
+    public KhuyenMaiServiceImpl() {
+        repo = new KhuyenMaiRepositoryImpl();
+    }
+
+    @Override
+    public List<KhuyenMaiCustom> findByKey(String key) {
+        return this.repo.findByKey(key);
+    }
+
+    @Override
+    public String addOrUpdate(KhuyenMaiCustom t) {
+        
+        return "";
+    }
+
+
+}
